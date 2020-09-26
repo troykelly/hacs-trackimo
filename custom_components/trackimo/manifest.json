@@ -1,0 +1,16 @@
+{
+  "domain": "trackimo",
+  "name": "Trackimo",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/trackimo",
+  "requirements": [
+    "trackimo==0.1.11"
+  ],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@troykelly"
+  ]
+}
