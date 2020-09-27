@@ -3,6 +3,7 @@
   "name": "Trackimo",
   "config_flow": true,
   "documentation": "https://github.com/troykelly/hacs-trackimo/wiki",
+  "issue_tracker": "https://github.com/troykelly/hacs-trackimo/issues",
   "requirements": [
     "trackimo==0.1.15"
   ],
