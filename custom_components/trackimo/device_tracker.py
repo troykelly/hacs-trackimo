@@ -182,7 +182,7 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
     @property
     def location_accuracy(self):
         """Return the gps accuracy of the device."""
-        return 20 if self.__device.triangulated else 200
+        return 20 if self.__device.triangulated else 100
 
     @property
     def name(self):

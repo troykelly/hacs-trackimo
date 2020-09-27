@@ -2,9 +2,9 @@
   "domain": "trackimo",
   "name": "Trackimo",
   "config_flow": true,
-  "documentation": "https://www.home-assistant.io/integrations/trackimo",
+  "documentation": "https://github.com/troykelly/hacs-trackimo/wiki",
   "requirements": [
-    "trackimo==0.1.12"
+    "trackimo==0.1.14"
   ],
   "ssdp": [],
   "zeroconf": [],

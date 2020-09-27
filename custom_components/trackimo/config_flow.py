@@ -26,11 +26,11 @@ async def validate_input(hass: core.HomeAssistant, data):
     #     your_validate_func, data["username"], data["password"]
     # )
 
-    api = Trackimo(loop=hass.loop)
+    api = Trackimo(
+        loop=hass.loop, client_id=TRACKIMO_CLIENTID, client_secret=TRACKIMO_CLIENTSECRET
+    )
 
-    if not await api.login(
-        TRACKIMO_CLIENTID, TRACKIMO_CLIENTSECRET, data["username"], data["password"]
-    ):
+    if not await api.login(data["username"], data["password"]):
         raise InvalidAuth
 
     # If you cannot connect:

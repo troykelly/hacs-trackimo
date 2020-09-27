@@ -29,17 +29,17 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     if not DOMAIN in hass.data:
         hass.data[DOMAIN] = {}
 
-    hass.data[DOMAIN][entry.entry_id] = Trackimo(loop=hass.loop)
-
-    clientid = entry.data["clientid"] if "clientid" in entry.data else None
-    clientsecret = entry.data["clientsecret"] if "clientsecret" in entry.data else None
+    client_id = entry.data["clientid"] if "clientid" in entry.data else None
+    client_secret = entry.data["clientsecret"] if "clientsecret" in entry.data else None
     username = entry.data["username"] if "username" in entry.data else None
     password = entry.data["password"] if "password" in entry.data else None
 
-    if clientid and clientsecret and username and password:
+    hass.data[DOMAIN][entry.entry_id] = Trackimo(
+        loop=hass.loop, client_id=client_id, client_secret=client_secret
+    )
+
+    if client_id and client_secret and username and password:
         if not await hass.data[DOMAIN][entry.entry_id].login(
-            clientid,
-            clientsecret,
             username,
             password,
         ):
