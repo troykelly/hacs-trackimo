@@ -4,7 +4,7 @@
   "config_flow": true,
   "documentation": "https://github.com/troykelly/hacs-trackimo/wiki",
   "requirements": [
-    "trackimo==0.1.14"
+    "trackimo==0.1.15"
   ],
   "ssdp": [],
   "zeroconf": [],
