@@ -65,6 +65,7 @@ from .const import (
     EVENT_MAINTENANCE,
     EVENT_TEXT_MESSAGE,
     TRACKER_UPDATE,
+    MANUFACTURER,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -136,6 +137,17 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
         self.__device = device
 
     @property
+    def device_info(self):
+        """Return the device_info of the device."""
+        return {
+            "identifiers": {(DOMAIN, self.unique_id)},
+            "name": self.name,
+            "model": trackimo_device_type(self.__device.features.id),
+            "sw_version": self.__device.features.firmware,
+            "manufacturer": MANUFACTURER,
+        }
+
+    @property
     def should_poll(self):
         return True
 
@@ -195,11 +207,6 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
         return self.__device.id
 
     @property
-    def device_info(self):
-        """Return the device info."""
-        return {"name": self.__device.name, "identifiers": {(DOMAIN, self.__device.id)}}
-
-    @property
     def source_type(self):
         """Return the source type, eg gps or router, of the device."""
         return SOURCE_TYPE_GPS
@@ -215,3 +222,21 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
     async def async_will_remove_from_hass(self):
         """Clean up after entity before removal."""
         await super().async_will_remove_from_hass()
+
+
+def trackimo_device_type(device_feature_id=None):
+    """Convert Trackimo Feature ID to Device Name
+
+    Attributes:
+        device_feature_id (int): Feature ID from device
+    """
+
+    if not device_feature_id:
+        return "Unknown Device"
+    if device_feature_id == 16:
+        return "3G GPS Watch"
+    if device_feature_id == 13:
+        return "3G GPS Guardian"
+    if device_feature_id == 12:
+        return "3G GPS Universal"
+    return "Unknown Type " + str(device_feature_id)

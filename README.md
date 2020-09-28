@@ -1,6 +1,6 @@
 # Trackimo for Home Assistant
 
-[![GitHub Stars](https://img.shields.io/github/stars/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/issues) [![Current Version](https://img.shields.io/badge/version-0.0.8-green.svg)](https://github.com/troykelly/hacs-trackimo)
+[![GitHub Stars](https://img.shields.io/github/stars/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/issues) [![Current Version](https://img.shields.io/badge/version-0.0.9-green.svg)](https://github.com/troykelly/hacs-trackimo)
 
 A simple Trackimo integration for Home Assistant. Allows you to see where your Trackimo devices are.
 

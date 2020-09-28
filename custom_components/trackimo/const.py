@@ -49,3 +49,5 @@ EVENT_DEVICE_UNKNOWN = "device_unknown"
 EVENT_IGNITION_OFF = "ignition_off"
 EVENT_IGNITION_ON = "ignition_on"
 EVENT_ALL_EVENTS = "all_events"
+
+MANUFACTURER = "trackimo"

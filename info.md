@@ -8,8 +8,11 @@
 
 ### Features
 
-{% if version_installed.replace("v", "").replace(".","") | int < 4  %}
+{% if version_installed.replace("v", "").replace(".","") | int < 7  %}
 
+- Device firmware and details available to interface
+  {% endif %}
+  {% if version_installed.replace("v", "").replace(".","") | int < 4  %}
 - Updated trackimo library to 0.1.16
   {% endif %}
   {% if version_installed.replace("v", "").replace(".","") | int < 3  %}
