@@ -123,7 +123,20 @@ async def async_setup_entry(hass: HomeAssistantType, entry, async_add_entities):
             entity = TrackimoEntity(device)
             entities.append(entity)
 
+    def device_event_handler(event_type=None, device_id=None, device=None, ts=None):
+        if not (event_type and device):
+            _LOGGER.warning("Event received with no type or device")
+            return None
+        _LOGGER.debug("%s event received: %s", event_type, device.__dict__)
+        try:
+            api.devices[device_id].async_device_changed()
+        except Exception as err:
+            _LOGGER.error("Unable to send update to HA")
+            _LOGGER.exception(err)
+
     async_add_entities(entities)
+
+    task = api.track(interval=SCAN_INTERVAL, event_receiver=device_event_handler)
 
 
 class TrackimoEntity(TrackerEntity, RestoreEntity):
@@ -135,6 +148,10 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
     ):
         """Set up Trackimo entity."""
         self.__device = device
+
+    def async_device_changed(self):
+        _LOGGER.debug("%s (%d) advising HA of update", self.name, self.unique_id)
+        self.async_schedule_update_ha_state()
 
     @property
     def device_info(self):
@@ -149,7 +166,7 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
 
     @property
     def should_poll(self):
-        return True
+        return False
 
     @property
     def icon(self):
