@@ -8,8 +8,11 @@
 
 ### Features
 
-{% if version_installed.replace("v", "").replace(".","") | int < 7  %}
+{% if version_installed.replace("v", "").replace(".","") | int < 11  %}
 
+- Fixing issue with Trackimo API force logging out accounts
+  {% endif %}
+  {% if version_installed.replace("v", "").replace(".","") | int < 7  %}
 - Device firmware and details available to interface
   {% endif %}
   {% if version_installed.replace("v", "").replace(".","") | int < 4  %}
