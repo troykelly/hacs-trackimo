@@ -8,8 +8,11 @@
 
 ### Features
 
-{% if version_installed.replace("v", "").replace(".","") | int < 13  %}
+{% if version_installed.replace("v", "").replace(".","") | int < 18  %}
 
+- Explicitly listing requirements
+  {% endif %}
+  {% if version_installed.replace("v", "").replace(".","") | int < 13  %}
 - Fixing issue with Trackimo API force logging out accounts
   {% endif %}
   {% if version_installed.replace("v", "").replace(".","") | int < 7  %}
