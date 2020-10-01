@@ -60,8 +60,6 @@ from .const import (
     EVENT_DEVICE_UNKNOWN,
     EVENT_GEOFENCE_ENTER,
     EVENT_GEOFENCE_EXIT,
-    EVENT_IGNITION_OFF,
-    EVENT_IGNITION_ON,
     EVENT_MAINTENANCE,
     EVENT_TEXT_MESSAGE,
     TRACKER_UPDATE,
@@ -101,8 +99,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
                     EVENT_ALARM,
                     EVENT_TEXT_MESSAGE,
                     EVENT_DEVICE_UNKNOWN,
-                    EVENT_IGNITION_OFF,
-                    EVENT_IGNITION_ON,
                     EVENT_ALL_EVENTS,
                 )
             ],
@@ -133,13 +129,13 @@ async def async_setup_entry(hass: HomeAssistantType, entry, async_add_entities):
         if not (event_type and device):
             _LOGGER.warning("Event received with no type or device")
             return None
-        _LOGGER.debug("%s event received: %s", event_type, device.__dict__)
+        _LOGGER.debug("%s event received: %d", event_type, device_id)
         try:
-            hass.data[DOMAIN]["entity_ref"][device.id].async_schedule_update_ha_state()
+            hass.data[DOMAIN]["entity_ref"][device.id].async_device_changed()
         except Exception as err:
-            _LOGGER.warning(device.__dict__)
             _LOGGER.error("Unable to send update to HA")
             _LOGGER.exception(err)
+            raise err
 
     async_add_entities(entities)
 
@@ -158,7 +154,8 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
         """Set up Trackimo entity."""
         self.__device = device
 
-    async def async_device_changed(self):
+    def async_device_changed(self):
+        """Send changed data to HA"""
         _LOGGER.debug("%s (%d) advising HA of update", self.name, self.unique_id)
         self.async_schedule_update_ha_state()
 
