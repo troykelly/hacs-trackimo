@@ -129,7 +129,7 @@ async def async_setup_entry(hass: HomeAssistantType, entry, async_add_entities):
             return None
         _LOGGER.debug("%s event received: %s", event_type, device.__dict__)
         try:
-            api.devices[device_id].async_device_changed()
+            device.async_device_changed()
         except Exception as err:
             _LOGGER.error("Unable to send update to HA")
             _LOGGER.exception(err)

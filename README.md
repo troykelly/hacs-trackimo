@@ -1,6 +1,6 @@
 # Trackimo for Home Assistant
 
-[![GitHub Stars](https://img.shields.io/github/stars/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/issues) [![Current Version](https://img.shields.io/badge/version-0.0.14-green.svg)](https://github.com/troykelly/hacs-trackimo) ![Validate with hassfest](https://github.com/troykelly/hacs-trackimo/workflows/Validate%20with%20hassfest/badge.svg?branch=master) ![Validate](https://github.com/troykelly/hacs-trackimo/workflows/Validate/badge.svg)
+[![GitHub Stars](https://img.shields.io/github/stars/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/issues) [![Current Version](https://img.shields.io/badge/version-0.0.15-green.svg)](https://github.com/troykelly/hacs-trackimo) ![Validate with hassfest](https://github.com/troykelly/hacs-trackimo/workflows/Validate%20with%20hassfest/badge.svg?branch=master) ![Validate](https://github.com/troykelly/hacs-trackimo/workflows/Validate/badge.svg)
 
 A simple Trackimo integration for Home Assistant. Allows you to see where your Trackimo devices are.
 
