@@ -8,8 +8,11 @@
 
 ### Features
 
-{% if version_installed.replace("v", "").replace(".","") | int < 18  %}
+{% if version_installed.replace("v", "").replace(".","") | int < 19  %}
 
+- Removed incompatible requirement
+  {% endif %}
+  {% if version_installed.replace("v", "").replace(".","") | int < 18  %}
 - Explicitly listing requirements
   {% endif %}
   {% if version_installed.replace("v", "").replace(".","") | int < 13  %}
