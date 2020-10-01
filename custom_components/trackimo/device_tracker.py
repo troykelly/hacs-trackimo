@@ -116,12 +116,18 @@ async def async_setup_entry(hass: HomeAssistantType, entry, async_add_entities):
 
     api = hass.data[DOMAIN][entry.entry_id]
 
+    if not "entity_ref" in hass.data[DOMAIN]:
+        hass.data[DOMAIN]["entity_ref"] = {}
+
+    if not "tasks" in hass.data[DOMAIN]:
+        hass.data[DOMAIN]["tasks"] = {}
+
     entities = []
     for device_id in api.devices:
         device = api.devices[device_id]
         if device and device.latitude and device.longitude:
-            entity = TrackimoEntity(device)
-            entities.append(entity)
+            hass.data[DOMAIN]["entity_ref"][device_id] = TrackimoEntity(device)
+            entities.append(hass.data[DOMAIN]["entity_ref"][device_id])
 
     def device_event_handler(event_type=None, device_id=None, device=None, ts=None):
         if not (event_type and device):
@@ -129,14 +135,17 @@ async def async_setup_entry(hass: HomeAssistantType, entry, async_add_entities):
             return None
         _LOGGER.debug("%s event received: %s", event_type, device.__dict__)
         try:
-            device.async_device_changed()
+            hass.data[DOMAIN]["entity_ref"][device.id].async_schedule_update_ha_state()
         except Exception as err:
+            _LOGGER.warning(device.__dict__)
             _LOGGER.error("Unable to send update to HA")
             _LOGGER.exception(err)
 
     async_add_entities(entities)
 
-    task = api.track(interval=SCAN_INTERVAL, event_receiver=device_event_handler)
+    hass.data[DOMAIN]["tasks"]["device_tracker"] = api.track(
+        interval=SCAN_INTERVAL, event_receiver=device_event_handler
+    )
 
 
 class TrackimoEntity(TrackerEntity, RestoreEntity):
@@ -149,7 +158,7 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
         """Set up Trackimo entity."""
         self.__device = device
 
-    def async_device_changed(self):
+    async def async_device_changed(self):
         _LOGGER.debug("%s (%d) advising HA of update", self.name, self.unique_id)
         self.async_schedule_update_ha_state()
 
