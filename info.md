@@ -8,8 +8,11 @@
 
 ### Features
 
-{% if version_installed.replace("v", "").replace(".","") | int < 19  %}
+{% if version_installed.replace("v", "").replace(".","") | int < 20  %}
 
+- Added Norwegian translation from @hwikene
+  {% endif %}
+  {% if version_installed.replace("v", "").replace(".","") | int < 19  %}
 - Removed incompatible requirement
   {% endif %}
   {% if version_installed.replace("v", "").replace(".","") | int < 18  %}
