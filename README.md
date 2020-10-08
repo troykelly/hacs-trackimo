@@ -1,10 +1,33 @@
 # Trackimo for Home Assistant
 
-[![GitHub Stars](https://img.shields.io/github/stars/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/issues) [![Current Version](https://img.shields.io/badge/version-0.0.20-green.svg)](https://github.com/troykelly/hacs-trackimo) ![Validate with hassfest](https://github.com/troykelly/hacs-trackimo/workflows/Validate%20with%20hassfest/badge.svg?branch=master) ![Validate](https://github.com/troykelly/hacs-trackimo/workflows/Validate/badge.svg)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs) [![GitHub Stars](https://img.shields.io/github/stars/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/troykelly/hacs-trackimo.svg)](https://github.com/troykelly/hacs-trackimo/issues) [![Current Version](https://img.shields.io/badge/version-0.0.20-green.svg)](https://github.com/troykelly/hacs-trackimo) ![Validate with hassfest](https://github.com/troykelly/hacs-trackimo/workflows/Validate%20with%20hassfest/badge.svg?branch=master) ![Validate](https://github.com/troykelly/hacs-trackimo/workflows/Validate/badge.svg)
 
 A simple Trackimo integration for Home Assistant. Allows you to see where your Trackimo devices are.
 
----
+## Device
+
+```yaml
+source_type: gps
+battery_level: 99
+latitude: -27.468030
+longitude: 153.039900
+gps_accuracy: 100
+altitude: 60
+bearing: null
+speed: null
+mps: null
+timestamp: 1570775634
+address: Brisbane River, Brisbane, Queensland, Australia
+country: Australia
+city: Brisbane City
+state: Queensland
+region: null
+street: Brisbane River
+attribution: Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright
+age: 31349542
+friendly_name: My Car
+icon: mdi:map-marker-radius
+```
 
 ## Buy me a coffee
 
