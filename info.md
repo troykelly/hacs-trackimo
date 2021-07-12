@@ -8,8 +8,10 @@
 
 ### Features
 
+{% if version_installed.replace("v", "").replace(".","") | int < 21  %}
+- Fixed build
+  {% endif %}
 {% if version_installed.replace("v", "").replace(".","") | int < 20  %}
-
 - Added Norwegian translation from @hwikene
   {% endif %}
   {% if version_installed.replace("v", "").replace(".","") | int < 19  %}
