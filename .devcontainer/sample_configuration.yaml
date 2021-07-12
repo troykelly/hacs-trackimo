@@ -7,12 +7,9 @@ logger:
     custom_components.trackimo: debug
 frontend:
   themes: !include_dir_merge_named themes
-#hacs:
-#  token: CHANGE_ME
-#  sidepanel_title: HACS
-#  sidepanel_icon: hacs:hacs
-#  frontend_repo: "/workspaces/development/repositories/frontend"
-#  appdaemon: true
-#  experimental: true
-#  country: "ALL"
-#  release_limit: 5
+# trackimo:
+#   title: Trackimo Test
+#   username: test@test.test
+#   password: abcd1234
+#   clientid: 943f9b0f-73c8-4435-8801-0260db687f05
+#   clientsecret: 96ca64b0ae5f7005fd18387a28019615
