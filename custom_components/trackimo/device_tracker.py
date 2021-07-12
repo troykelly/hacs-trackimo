@@ -166,7 +166,7 @@ class TrackimoEntity(TrackerEntity, RestoreEntity):
             "identifiers": {(DOMAIN, self.unique_id)},
             "name": self.name,
             "model": trackimo_device_type(self.__device.features.id),
-            "sw_version": self.__device.features.firmware,
+            "sw_version": getattr(self.__device.features,'firmware', 'unknown'),
             "manufacturer": MANUFACTURER,
         }
 
