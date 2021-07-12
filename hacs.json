@@ -4,7 +4,7 @@
     "domains": [
         "device_tracker"
     ],
-    "homeassistant": "0.115.3",
+    "homeassistant": "2021.7.1",
     "iot_class": [
         "Cloud Polling"
     ]
