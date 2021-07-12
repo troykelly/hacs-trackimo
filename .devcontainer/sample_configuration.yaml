@@ -7,9 +7,9 @@ logger:
     custom_components.trackimo: debug
 frontend:
   themes: !include_dir_merge_named themes
-# trackimo:
-#   title: Trackimo Test
-#   username: test@test.test
-#   password: abcd1234
-#   clientid: 943f9b0f-73c8-4435-8801-0260db687f05
-#   clientsecret: 96ca64b0ae5f7005fd18387a28019615
+trackimo:
+  title: Trackimo Test
+  username: test@test.test
+  password: abcd1234
+  clientid: 943f9b0f-73c8-4435-8801-0260db687f05
+  clientsecret: 96ca64b0ae5f7005fd18387a28019615
